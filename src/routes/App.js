@@ -3,11 +3,12 @@ import {connect} from 'dva';
 import styles from './App.css';
 import Login from '../components/Login'
 function App({location, dispatch, App}) {
-  const {isLogin, userForm}=App
-  debugger;
-  const LoginProps={
+  const {isLogin, userForm, loginButtonLoading}=App
+
+  const LoginProps = {
     isLogin,
     userForm,
+    loginButtonLoading,
     onLogin(data){
       dispatch({
         type: `App/login`,
@@ -15,6 +16,7 @@ function App({location, dispatch, App}) {
       })
     }
   }
+
   if (isLogin) {
     return (
       <div className={styles.normal}>
